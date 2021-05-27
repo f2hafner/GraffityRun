@@ -20,6 +20,7 @@ public class MovementPlayer : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(onGround);
         // Keypress [Gravity Change]
         if(onGround == true){
             if(Input.GetKeyDown("space")){
@@ -33,8 +34,11 @@ public class MovementPlayer : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) {
         onGround = true;
+        Debug.Log("onGround = true");
     }
+
     void OnCollisionExit2D(Collision2D col) {
         onGround = false;
+        Debug.Log("onGround = false");
     }
 }
