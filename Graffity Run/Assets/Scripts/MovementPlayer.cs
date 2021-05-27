@@ -10,14 +10,20 @@ public class MovementPlayer : MonoBehaviour
     public bool gravityReverse = false; //true means gravity reversed
     public bool onGround = false; // is player on a Ground
     public float gravity = 1F;
-    
+    private Rigidbody2D _rigidbody2D;
+
+
+    private void Start()
+    {
+        _rigidbody2D = player.GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
         // Keypress [Gravity Change]
         if(onGround == true){
             if(Input.GetKeyDown("space")){
-                player.GetComponent<Rigidbody2D>().gravityScale *= -1;
+                _rigidbody2D.gravityScale *= -1;
             }
         }
 
