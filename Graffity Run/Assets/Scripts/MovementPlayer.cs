@@ -5,7 +5,6 @@ using UnityEngine;
 public class MovementPlayer : MonoBehaviour
 {
     public GameObject player;
-
     public float speed = 10;
 
     void Update()
