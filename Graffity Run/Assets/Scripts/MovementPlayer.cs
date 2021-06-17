@@ -6,7 +6,7 @@ public class MovementPlayer : MonoBehaviour
 {
     public GameObject playercam;
     public GameObject player;
-    public float speed = 10F;
+    public float speed = 15F;
     public bool gravityReverse = false; //true means gravity reversed
     public bool onGround = false; // is player on a Ground
     public float gravity = 1F;
