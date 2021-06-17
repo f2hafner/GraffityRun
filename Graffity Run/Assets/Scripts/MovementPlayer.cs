@@ -25,6 +25,10 @@ public class MovementPlayer : MonoBehaviour
         if(onGround == true){
             if(Input.GetKeyDown("space")){
                 _rigidbody2D.gravityScale *= -1;
+                for (int i = 0; i < 360; i++)
+                {
+                    if(i%2 == 0) player.transform.Rotate(1,0,0);
+                }
             }
         }
 
