@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementPlayer : MonoBehaviour
 {
@@ -37,6 +38,10 @@ public class MovementPlayer : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.tag == "DEATH")
+        { 
+            SceneManager.LoadScene("Test");
+        }
         onGround = true;
         Debug.Log("onGround = true");
     }
