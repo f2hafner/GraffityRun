@@ -11,12 +11,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BGLooper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/dontDestroyAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovementPlayer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/MovementPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/dontDestroyAudio.cs" />
       </list>
     </option>
   </component>
@@ -72,6 +75,7 @@
       <workItem from="1622128809009" duration="1366000" />
       <workItem from="1622203207449" duration="7000" />
       <workItem from="1624124090447" duration="496000" />
+      <workItem from="1624148457258" duration="201000" />
     </task>
     <servers />
   </component>
