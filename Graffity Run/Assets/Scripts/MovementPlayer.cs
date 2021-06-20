@@ -18,22 +18,22 @@ public class MovementPlayer : MonoBehaviour{
     public GameObject bossTrigger;
     public GameObject trashPandaHellEdition;
     public GameObject FXaudioSource;
-    private AudioSource fxAudioSource;
     private AudioSource audioSourceObject;
     public AudioClip Music;
     public AudioClip Jump;
     public AudioClip Death;
 
-    private void Start()
+    void Start()
     {
         _rigidbody2D = player.GetComponent<Rigidbody2D>();
         GameObject[] objectList = SceneManager.GetSceneByName("DontDestroyOnLoad").GetRootGameObjects();
         audioSourceObject = objectList[0].GetComponent<AudioSource>();
-        fxAudioSource = FXaudioSource.GetComponent<AudioSource>();
+        FXaudioSource.GetComponent<AudioSource>();
     }
 
     void Update()
     {
+        Debug.LogWarning(FXaudioSource.GetComponent<AudioSource>().volume);
         if (!timerReached)
         timer += Time.deltaTime;
 
@@ -47,8 +47,8 @@ public class MovementPlayer : MonoBehaviour{
         if(timerReached){
             if(onGround == true){
                 if(Input.GetKeyDown("space")){
-                    fxAudioSource.clip = Jump;
-                    fxAudioSource.Play();
+                    FXaudioSource.GetComponent<AudioSource>().clip = Jump;
+                    FXaudioSource.GetComponent<AudioSource>().Play();
                     _rigidbody2D.gravityScale *= -1;
                     for (int i = 0; i < 360; i++)
                     {
@@ -65,8 +65,8 @@ public class MovementPlayer : MonoBehaviour{
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag == "DEATH")
         { 
-            //fxAudioSource.clip = Death;
-            //fxAudioSource.Play();
+            FXaudioSource.GetComponent<AudioSource>().clip = Death;
+            FXaudioSource.GetComponent<AudioSource>().Play();
             SceneManager.LoadScene("Test");
         }
 
