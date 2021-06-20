@@ -17,6 +17,7 @@ public class MovementPlayer : MonoBehaviour{
     public GameObject bossPlatforms;
 
     public GameObject bossTrigger;
+    public GameObject trashPandaHellEdition;
 
     public GameObject audioSource;
     public AudioClip audioClip;
@@ -69,6 +70,7 @@ public class MovementPlayer : MonoBehaviour{
         { 
             bossPlatforms.SetActive(true);
             bossTrigger.SetActive(false);
+            trashPandaHellEdition.SetActive(true);
             audioSourceObject.clip = audioClip;
             audioSourceObject.Play();
             Debug.Log("BOSS");

@@ -6,10 +6,10 @@
     <e p="C:\Users\Meteo\Desktop\GraffityRun\Graffity Run" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="dontDestroyAudio.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="BGLooper.cs" t="Include" />
           <e p="colorizer.cs" t="Include" />
+          <e p="dontDestroyAudio.cs" t="Include" />
           <e p="MovementPlayer.cs" t="Include" />
         </e>
       </e>

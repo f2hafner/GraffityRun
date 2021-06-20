@@ -11,15 +11,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/dontDestroyAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BGLooper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/dontDestroyAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovementPlayer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/MovementPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/dontDestroyAudio.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MovementPlayer.cs" />
       </list>
     </option>
   </component>
@@ -76,6 +76,7 @@
       <workItem from="1622203207449" duration="7000" />
       <workItem from="1624124090447" duration="496000" />
       <workItem from="1624148457258" duration="201000" />
+      <workItem from="1624182351309" duration="359000" />
     </task>
     <servers />
   </component>
@@ -84,4 +85,10 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="WindowStateProjectService">
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1624182379038">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1680.1050@0.0.1920.1080" timestamp="1624182379038" />
+  </component>
 </project>
