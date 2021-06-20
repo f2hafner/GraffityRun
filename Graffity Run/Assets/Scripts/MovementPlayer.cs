@@ -14,10 +14,20 @@ public class MovementPlayer : MonoBehaviour{
     float timer = 0;
     bool timerReached = false;
 
+    public GameObject bossPlatforms;
+
+    public GameObject bossTrigger;
+
+    public GameObject audioSource;
+    public AudioClip audioClip;
+    private AudioSource audioSourceObject;
 
     private void Start()
     {
         _rigidbody2D = player.GetComponent<Rigidbody2D>();
+
+        
+        audioSourceObject = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -54,6 +64,16 @@ public class MovementPlayer : MonoBehaviour{
             SceneManager.LoadScene("Test");
             Debug.Log("DEATH");
         }
+
+        if (col.gameObject.tag == "BOSS")
+        { 
+            bossPlatforms.SetActive(true);
+            bossTrigger.SetActive(false);
+            audioSourceObject.clip = audioClip;
+            audioSourceObject.Play();
+            Debug.Log("BOSS");
+        }
+
         onGround = true;
         //Debug.Log("onGround = true");
     }
@@ -62,4 +82,5 @@ public class MovementPlayer : MonoBehaviour{
         onGround = false;
         //Debug.Log("onGround = false");
     }
+
 }

@@ -9,6 +9,11 @@ public class dontDestroyAudio : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(AudioSource);
+        /*foreach(var root in dontDestroyAudio.scene.GetRootGameObjects()){
+            if(root.GetType() == typeof(GameObject)){
+                root.GetComponent<AudioSource>();
+            }
+        }*/
     }
 
     // Update is called once per frame
