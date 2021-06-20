@@ -18,13 +18,20 @@ public class MovementPlayer : MonoBehaviour{
     public GameObject bossTrigger;
     public GameObject trashPandaHellEdition;
     public GameObject FXaudioSource;
-    private AudioSource audioSourceObject;
+    private AudioSource audioSourceObject = new AudioSource();
     public AudioClip Music;
     public AudioClip Jump;
     public AudioClip Death;
+    private bool turnOn = true;
 
     void Start()
     {
+        if (turnOn)
+        {
+            audioSourceObject.clip = Music;
+            DontDestroyOnLoad(audioSourceObject);
+            turnOn = false;
+        }
         _rigidbody2D = player.GetComponent<Rigidbody2D>();
         GameObject[] objectList = SceneManager.GetSceneByName("DontDestroyOnLoad").GetRootGameObjects();
         audioSourceObject = objectList[0].GetComponent<AudioSource>();
@@ -33,7 +40,6 @@ public class MovementPlayer : MonoBehaviour{
 
     void Update()
     {
-        Debug.LogWarning(FXaudioSource.GetComponent<AudioSource>().volume);
         if (!timerReached)
         timer += Time.deltaTime;
 
