@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class dontDestroyAudio : MonoBehaviour
 {
-    public AudioSource AudioSource;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(AudioSource);
+        //DontDestroyOnLoad(audioSource);
         /*foreach(var root in dontDestroyAudio.scene.GetRootGameObjects()){
             if(root.GetType() == typeof(GameObject)){
                 root.GetComponent<AudioSource>();

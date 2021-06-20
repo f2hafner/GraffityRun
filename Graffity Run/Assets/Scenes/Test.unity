@@ -1144,6 +1144,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1507818399}
   - {fileID: 1503968478}
   m_Father: {fileID: 1536673743}
   m_RootOrder: 1
@@ -1209,6 +1210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playercam: {fileID: 1536673740}
   player: {fileID: 208498276}
+  dino: {fileID: 0}
   speed: 10
   gravityReverse: 0
   onGround: 0
@@ -1216,8 +1218,10 @@ MonoBehaviour:
   bossPlatforms: {fileID: 261321483}
   bossTrigger: {fileID: 917611903}
   trashPandaHellEdition: {fileID: 346590175}
-  audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
+  FXaudioSource: {fileID: 1507818398}
+  Music: {fileID: 8300000, guid: 10c89be25a5233842b944fd2a66716e3, type: 3}
+  Jump: {fileID: 8300000, guid: 1360707ab13d90f4c8146474f9ab15ef, type: 3}
+  Death: {fileID: 8300000, guid: 3042f5b0619dbae4a921963adc55d99f, type: 3}
 --- !u!1 &209982718
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,7 +3012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 878084848}
   - component: {fileID: 878084849}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ScrollingMountain2Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3793,7 +3797,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1245643535}
   - component: {fileID: 1245643536}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ScrollingMountain3Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4390,7 +4394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408853489}
   - component: {fileID: 1408853490}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ScrollingMountain1Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4951,7 +4955,7 @@ Transform:
   m_Children:
   - {fileID: 137577868}
   m_Father: {fileID: 208498277}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1503968479
 SpriteRenderer:
@@ -5017,6 +5021,133 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.28, y: 2.7, z: 0.2}
   m_Center: {x: -0.04, y: 0.08, z: 0}
+--- !u!1 &1507818398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1507818399}
+  - component: {fileID: 1507818400}
+  m_Layer: 0
+  m_Name: FXAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1507818399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507818398}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 208498277}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1507818400
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507818398}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 106
+  DopplerLevel: 1
+  MinDistance: 495.0495
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1510133229
 GameObject:
   m_ObjectHideFlags: 0
@@ -5771,7 +5902,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1770186498}
-  m_Layer: 0
+  - component: {fileID: 1770186499}
+  m_Layer: 3
   m_Name: Parallax Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5796,6 +5928,23 @@ Transform:
   m_Father: {fileID: 1536673743}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1770186499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770186497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 7129745a085f13b4096de793293f2f36, type: 2}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &1793581219
 GameObject:
   m_ObjectHideFlags: 0
@@ -6626,7 +6775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2085565710}
   - component: {fileID: 2085565711}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ScrollingCityBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
