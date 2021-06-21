@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DEATH
   - BOSS
+  - MUSIC
+  - WIN
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MovementPlayer : MonoBehaviour{
+public class MovementPlayer : MonoBehaviour
+{
     public GameObject playercam;
     public GameObject player;
     public GameObject dino;
@@ -17,73 +18,108 @@ public class MovementPlayer : MonoBehaviour{
     public GameObject bossPlatforms;
     public GameObject bossTrigger;
     public GameObject trashPandaHellEdition;
-    public GameObject FXaudioSource;
-    private AudioSource audioSourceObject = new AudioSource();
+
+    public GameObject audioObject;
+    private AudioSource FXaudioSource;
+    private AudioSource MUSICaudioSource;
+    public AudioClip partOneMusic;
     public AudioClip Music;
     public AudioClip Jump;
     public AudioClip Death;
-    private bool turnOn = true;
 
+    public AudioClip winSound;
+
+    public GameObject winScreen;
+
+    public GameObject parallax;
+
+    public bool resetPressed = false;
+
+    void Awake()
+    {
+        //if (!SceneManager.GetSceneByName("DontDestroyOnLoad").IsValid()) DontDestroyOnLoad(audioObject);
+        FXaudioSource = audioObject.transform.Find("FXaudio").GetComponent<AudioSource>();
+        MUSICaudioSource = audioObject.transform.Find("MUSICaudio").GetComponent<AudioSource>();
+    }
     void Start()
     {
-        if (turnOn)
-        {
-            audioSourceObject.clip = Music;
-            DontDestroyOnLoad(audioSourceObject);
-            turnOn = false;
-        }
+        MUSICaudioSource.clip = partOneMusic;
+        MUSICaudioSource.Play();
         _rigidbody2D = player.GetComponent<Rigidbody2D>();
-        GameObject[] objectList = SceneManager.GetSceneByName("DontDestroyOnLoad").GetRootGameObjects();
-        audioSourceObject = objectList[0].GetComponent<AudioSource>();
-        FXaudioSource.GetComponent<AudioSource>();
     }
 
     void Update()
     {
+        if (resetPressed)
+        {
+            if (Input.GetKeyDown("space"))
+            {
+                SceneManager.LoadScene("Test");
+            }
+        }
+
         if (!timerReached)
-        timer += Time.deltaTime;
+            timer += Time.deltaTime;
 
-        if (!timerReached && timer > 1){
-        Debug.Log("Done waiting");
+        if (!timerReached && timer > 1)
+        {
+            Debug.Log("Done waiting");
 
-        timerReached = true;
+            timerReached = true;
         }
         //Debug.Log(onGround);
         // Keypress [Gravity Change]
-        if(timerReached){
-            if(onGround == true){
-                if(Input.GetKeyDown("space")){
-                    FXaudioSource.GetComponent<AudioSource>().clip = Jump;
-                    FXaudioSource.GetComponent<AudioSource>().Play();
+        if (timerReached)
+        {
+            if (onGround == true)
+            {
+                if (Input.GetKeyDown("space"))
+                {
+                    FXaudioSource.clip = Jump;
+                    FXaudioSource.Play();
                     _rigidbody2D.gravityScale *= -1;
                     for (int i = 0; i < 360; i++)
                     {
-                        if(i%2 == 0) player.transform.Rotate(1,0,0);
+                        if (i % 2 == 0) player.transform.Rotate(1, 0, 0);
                     }
                 }
             }
-
             // Movement
-            playercam.transform.position += new Vector3(speed*Time.deltaTime,0,0);
+            playercam.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col) {
+    void OnCollisionEnter2D(Collision2D col)
+    {
         if (col.gameObject.tag == "DEATH")
-        { 
-            FXaudioSource.GetComponent<AudioSource>().clip = Death;
-            FXaudioSource.GetComponent<AudioSource>().Play();
+        {
+            FXaudioSource.clip = Death;
+            FXaudioSource.Play();
             SceneManager.LoadScene("Test");
         }
 
+        if (col.gameObject.tag == "WIN")
+        {
+            MUSICaudioSource.clip = winSound;
+            MUSICaudioSource.loop = false;
+            MUSICaudioSource.Play();
+            trashPandaHellEdition.SetActive(false);
+            winScreen.SetActive(true);
+            bossPlatforms.SetActive(false);
+            resetPressed = true;
+            player.SetActive(false);
+
+        }
+
         if (col.gameObject.tag == "BOSS")
-        { 
+        {
             bossPlatforms.SetActive(true);
             bossTrigger.SetActive(false);
             trashPandaHellEdition.SetActive(true);
-            
-            audioSourceObject.clip = Music;
-            audioSourceObject.Play();
+            player.transform.position = new Vector3(player.transform.position.x - 3, player.transform.position.y, 5);
+
+            MUSICaudioSource.clip = Music;
+            MUSICaudioSource.Play();
             Debug.Log("BOSS");
         }
 
@@ -91,9 +127,11 @@ public class MovementPlayer : MonoBehaviour{
         //Debug.Log("onGround = true");
     }
 
-    void OnCollisionExit2D(Collision2D col) {
+    void OnCollisionExit2D(Collision2D col)
+    {
         onGround = false;
         //Debug.Log("onGround = false");
     }
 
 }
+

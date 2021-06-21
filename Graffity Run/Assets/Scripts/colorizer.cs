@@ -15,7 +15,7 @@ public class colorizer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scalingConstant = ((Mathf.Abs(xLevelEnd)/(700))*(Mathf.Abs(200/xLevelEnd)));
+        scalingConstant = ((Mathf.Abs(xLevelEnd) / (1000)) * (Mathf.Abs(200 / xLevelEnd)));
         processingVolume = PostProcessingObject.GetComponent<PostProcessVolume>();
         processingVolume.profile.TryGetSettings(out grading);
     }
@@ -23,8 +23,8 @@ public class colorizer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(satChangeable) grading.saturation.value = ((cam.transform.position.x * scalingConstant)-100);
-        if(grading.saturation.value>50 && satChangeable) satChangeable = false;
-        Debug.Log("Scaler: "+scalingConstant+"\t x: "+ cam.transform.position.x+"\t sat: "+ grading.saturation.value);
+        if (satChangeable) grading.saturation.value = ((cam.transform.position.x * scalingConstant) - 100);
+        if (grading.saturation.value > 50 && satChangeable) satChangeable = false;
+        Debug.Log("Scaler: " + scalingConstant + "\t x: " + cam.transform.position.x + "\t sat: " + grading.saturation.value);
     }
 }
